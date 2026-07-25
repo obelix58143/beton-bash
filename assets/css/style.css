@@ -116,18 +116,6 @@ nav.site-nav a:hover { color: var(--yellow); }
 
 .hero .facts strong { color: var(--text); }
 
-.ticket-warning {
-  display: inline-block;
-  margin-top: 1.75rem;
-  padding: 0.5rem 1.25rem;
-  border: 2px solid var(--yellow);
-  color: var(--yellow);
-  text-transform: uppercase;
-  font-weight: bold;
-  letter-spacing: 0.05em;
-  transform: rotate(-1deg);
-}
-
 .cta-row {
   margin-top: 2rem;
 }
@@ -248,24 +236,3 @@ footer.site-footer a {
 }
 
 footer.site-footer a:hover { color: var(--yellow); }
-
-.legal-page h1 {
-  color: var(--yellow);
-  text-transform: uppercase;
-}
-
-.legal-page h2 {
-  color: var(--magenta);
-  font-size: 1.2rem;
-  text-transform: none;
-}
-
-.legal-page section {
-  border-bottom: none;
-  padding: 1rem 0;
-}
-
-.todo {
-  color: var(--magenta);
-  font-weight: bold;
-}
