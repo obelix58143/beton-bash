@@ -32,6 +32,10 @@ a:hover { color: var(--magenta); }
 header.site-header {
   border-bottom: 1px solid var(--border);
   padding: 1.25rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
 }
 
 header.site-header .container {
@@ -220,6 +224,35 @@ section h2 {
   display: block;
   border: 1px solid var(--border);
   filter: grayscale(15%) contrast(1.05);
+  cursor: zoom-in;
+  transition: filter 0.15s, transform 0.15s;
+}
+
+.gallery img:hover {
+  filter: grayscale(0%) contrast(1.05);
+  transform: scale(1.02);
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(13, 13, 13, 0.92);
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  cursor: zoom-out;
+}
+
+.lightbox.is-open {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  border: 1px solid var(--border);
 }
 
 footer.site-footer {

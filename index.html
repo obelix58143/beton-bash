@@ -47,7 +47,7 @@
 
 <section>
   <div class="container">
-    <h2>Was dich erwartet</h2>
+    <h2>Die Fakten</h2>
     <div class="info-grid">
       <div class="card">
         <h3>Ort</h3>
@@ -95,7 +95,7 @@
   <div class="container">
     <h2>Impressionen 2025</h2>
     <p style="color:var(--muted)">150 Gäste, fünf Bands, eine Betonpiste. So war's letztes Jahr.</p>
-    <div class="gallery">
+    <div class="gallery" id="gallery">
       <img src="images/gckk02.png" alt="Beton Bash 2025 – Bühne im Abendlicht">
       <img src="images/gckk03.png" alt="Beton Bash 2025 – Publikum vor der Bühne">
       <img src="images/gckk01.png" alt="Beton Bash 2025 – Nebel und Licht auf dem Gelände">
@@ -103,6 +103,29 @@
     </div>
   </div>
 </section>
+
+<div class="lightbox" id="lightbox">
+  <img src="" alt="" id="lightbox-img">
+</div>
+
+<script>
+  var gallery = document.getElementById('gallery');
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightbox-img');
+
+  gallery.addEventListener('click', function (e) {
+    if (e.target.tagName === 'IMG') {
+      lightboxImg.src = e.target.src;
+      lightboxImg.alt = e.target.alt;
+      lightbox.classList.add('is-open');
+    }
+  });
+
+  lightbox.addEventListener('click', function () {
+    lightbox.classList.remove('is-open');
+    lightboxImg.src = '';
+  });
+</script>
 
 <section id="downloads">
   <div class="container">
