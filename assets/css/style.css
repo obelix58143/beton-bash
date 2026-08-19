@@ -122,6 +122,8 @@ nav.site-nav a:hover { color: var(--yellow); }
 
 .cta-row {
   margin-top: 2rem;
+  display: flex;
+  justify-content: center;
 }
 
 .btn {
@@ -179,11 +181,6 @@ section h2 {
     max-width: 380px;
     margin: 0 auto;
   }
-}
-
-.ticket-widget {
-  margin-top: 1.5rem;
-  max-width: 480px;
 }
 
 .info-grid {
