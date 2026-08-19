@@ -6,6 +6,7 @@
 <title>Beton Bash 2026 – 29.08.2026, Hockenheim</title>
 <meta name="description" content="Beton Bash 2026: Fünf Bands. Eine Betonpiste. Kein Bullshit. 29.08.2026 in Hockenheim.">
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/leaflet/leaflet.css">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 <body>
@@ -15,6 +16,7 @@
     <a class="brand" href="/">BETON<span>BASH</span></a>
     <nav class="site-nav">
       <a href="#lineup">Line-up</a>
+      <a href="#anfahrt">Anfahrt</a>
       <a href="#tickets">Tickets</a>
       <a href="#impressionen">Impressionen</a>
       <a href="#downloads">Downloads</a>
@@ -65,6 +67,17 @@
           <p>Vorverkauf 20 €<br>Restkarten Abendkasse</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="anfahrt">
+  <div class="container">
+    <h2>Anfahrt</h2>
+    <p style="color:var(--muted)">Herrenteich 1, 68766 Hockenheim.</p>
+    <div id="map" class="venue-map"></div>
+    <div class="cta-row">
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=49.342204573333866,8.479844550760339" target="_blank" rel="noopener">In Google Maps öffnen</a>
     </div>
   </div>
 </section>
@@ -128,6 +141,17 @@
     lightbox.classList.remove('is-open');
     lightboxImg.src = '';
   });
+</script>
+
+<script src="assets/leaflet/leaflet.js"></script>
+<script>
+  var venue = [49.342204573333866, 8.479844550760339];
+  var map = L.map('map', {scrollWheelZoom: false}).setView(venue, 15);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>-Mitwirkende'
+  }).addTo(map);
+  L.marker(venue).addTo(map).bindPopup('Beton Bash<br>Herrenteich 1, 68766 Hockenheim');
 </script>
 
 <section id="downloads">
