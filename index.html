@@ -75,7 +75,12 @@
   <div class="container">
     <h2>Anfahrt</h2>
     <p style="color:var(--muted)">Herrenteich 1, 68766 Hockenheim.</p>
-    <div id="map" class="venue-map"></div>
+    <div class="venue-map" id="map-container">
+      <div class="venue-map-placeholder" id="map-placeholder">
+        <p>Karte wird erst nach Klick von OpenStreetMap geladen (kein Cookie, aber eine externe Anfrage).</p>
+        <button type="button" class="btn" id="load-map-btn">Karte anzeigen</button>
+      </div>
+    </div>
     <div class="cta-row">
       <a class="btn" href="https://www.google.com/maps/search/?api=1&query=49.342204573333866,8.479844550760339" target="_blank" rel="noopener">In Google Maps öffnen</a>
     </div>
@@ -143,15 +148,24 @@
   });
 </script>
 
-<script src="assets/leaflet/leaflet.js"></script>
 <script>
-  var venue = [49.342204573333866, 8.479844550760339];
-  var map = L.map('map', {scrollWheelZoom: false}).setView(venue, 15);
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>-Mitwirkende'
-  }).addTo(map);
-  L.marker(venue).addTo(map).bindPopup('Beton Bash<br>Herrenteich 1, 68766 Hockenheim');
+  document.getElementById('load-map-btn').addEventListener('click', function () {
+    var container = document.getElementById('map-container');
+    container.innerHTML = '';
+
+    var script = document.createElement('script');
+    script.src = 'assets/leaflet/leaflet.js';
+    script.onload = function () {
+      var venue = [49.342204573333866, 8.479844550760339];
+      var map = L.map(container, {scrollWheelZoom: false}).setView(venue, 15);
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>-Mitwirkende'
+      }).addTo(map);
+      L.marker(venue).addTo(map).bindPopup('Beton Bash<br>Herrenteich 1, 68766 Hockenheim');
+    };
+    document.body.appendChild(script);
+  });
 </script>
 
 <section id="downloads">
